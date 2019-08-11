@@ -12,18 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Auth\LoginController@login');
-Route::post('logout', 'Auth\LoginController@logout')->name('logout');
-        
-Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register')->middleware('role:admin');
-Route::post('register', 'Auth\RegisterController@register');
-
 Auth::routes();
-
-
 
 Route::get('/home', 'HomeController@index')->name('home');

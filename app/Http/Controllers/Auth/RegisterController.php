@@ -37,7 +37,8 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // ruta protegida con middleware solo para admin
+        $this->middleware(['role:admin']);
     }
 
     /**
