@@ -7,6 +7,10 @@ use App\User;
 
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+        // $this->middleware(['role:admin']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +39,14 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User();
+        $user->email = $request->email;
+        $user->name = $request->name;
+        $user->password = bcrypt($request->password);        
+        $user->save();
+        $user->assignRole('user');
+
+        return $user;
     }
 
     /**
@@ -46,7 +57,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+        return User::where(['id'=>$id])->first();
     }
 
     /**
@@ -69,7 +80,12 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->email = $request->email;
+        $user->name = $request->name;      
+        $user->save();
+
+        return $user;
     }
 
     /**
@@ -80,6 +96,7 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
     }
 }
