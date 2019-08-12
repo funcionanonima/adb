@@ -2,8 +2,8 @@
     <div>
         <div class="row justify-content-center">
             <div class="col-md-10">
-                <div class="card"  v-if="activeEdit">
-                <div class="card-header">Editar Usuario</div>
+                <div class="card border-dark"  v-if="activeEdit">
+                <div class="card-header bg-dark text-white">Editar Usuario</div>
 
                 <div class="card-body">
                     <form @submit.prevent="editUser(user)" aria-label="Editar Usuario">
