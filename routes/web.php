@@ -34,4 +34,8 @@ Route::delete('/companies/{companie}', 'CompanieController@destroy')->name('comp
 Route::get('/area', 'AreaController@indexArea')->name('areas');
 Route::resource('/areas', 'AreaController')->except('create', 'edit');
 
+//Files
+Route::resource('/documents', 'DocumentController')->except('create', 'edit');
+Route::get('/document', 'DocumentController@indexDocument')->name('documents');
+
 

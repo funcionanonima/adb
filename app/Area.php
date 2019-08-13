@@ -15,4 +15,8 @@ class Area extends Model
     public function companie(){
         return $this->belongsTo(Companie::class);
     }
+
+    public function areas(){
+        return $this->hasMany(File::class);
+    }
 }
