@@ -18,4 +18,20 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('/users', 'UsersController')->except('create', 'edit')->middleware('role:admin');
+
+//Users
+Route::resource('/users', 'UsersController')->except('create', 'edit');
+
+//Companies
+Route::get('/companie', 'CompanieController@indexCompanie')->name('companies');
+Route::get('/companies', 'CompanieController@index')->name('companies.index');
+Route::post('/companies', 'CompanieController@store')->name('companies.store');
+Route::get('/companies/{companie}', 'CompanieController@show')->name('companies.show');
+Route::put('/companies/{companie}', 'CompanieController@update')->name('companies.update');
+Route::delete('/companies/{companie}', 'CompanieController@destroy')->name('companies.destroy');
+
+//Areas
+Route::get('/area', 'AreaController@indexArea')->name('areas');
+Route::resource('/areas', 'AreaController')->except('create', 'edit');
+
+

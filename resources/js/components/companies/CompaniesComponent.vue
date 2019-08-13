@@ -2,7 +2,7 @@
     <div>
         <div class="row justify-content-center">
             <div class="col-md-10">
-                <div class="card border-dark"  v-if="activeEdit">
+                <!-- <div class="card border-dark"  v-if="activeEdit">
                 <div class="card-header bg-dark text-white">Editar Usuario</div>
 
                 <div class="card-body">
@@ -30,7 +30,7 @@
                             </div>
                         </div>
 
-                        <!-- <div class="form-group row">
+                        <div class="form-group row">
                             <label for="rol" class="col-md-4 col-form-label text-md-right">Rol</label>
 
                             <div class="col-md-6">
@@ -50,7 +50,7 @@
                                         <option value="2">Inactivo</option>                                            
                                     </select>
                             </div>
-                        </div> -->
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
@@ -64,65 +64,46 @@
                         </div>
                     </form>
                 </div>
-            </div>
+            </div> -->
 
 
 
 
-            <div class="card"  v-else>
-                <div class="card-header">Crear Usuario</div>
+            <div class="card"  >
+                <div class="card-header">Crear Empresa</div>
 
                 <div class="card-body">
-                    <form @submit.prevent="store" aria-label="Crear Usuario">
+                    <form @submit.prevent="store" aria-label="Crear Empresa">
                         
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">Nombre</label>
 
                             <div class="col-md-6">
-                                <input v-model="user.name" id="name" type="text" class="form-control" name="name" required autofocus>
+                                <input v-model="companie.name" id="name" type="text" class="form-control" name="name" required autofocus>
 
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">Direccion Correo</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">Descripcion</label>
 
                             <div class="col-md-6">
-                                <input v-model="user.email" id="email" type="email" class="form-control" name="email" required>
+                                <input v-model="companie.email" id="email" type="email" class="form-control" name="email" required>
 
 
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">Contraseña</label>
-
-                            <div class="col-md-6">
-                                <input v-model="user.password" id="password" type="password" class="form-control" name="password" required>
-
-
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Confirmar Contraseña</label>
-
-                            <div class="col-md-6">
-                                <input v-model="user.password_confirmation" id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
 
                         <!-- <div class="form-group row">
-                            <label for="role_id" class="col-md-4 col-form-label text-md-right">Rol</label>
+                            <label for="role_id" class="col-md-4 col-form-label text-md-right">Usuario</label>
 
                             <div class="col-md-6">
-                                    <select v-model="user.role_id" name="role_id" id="role_id" class="col-form-label" >                                            
-                                        <option value="1">Usuario</option>                                            
-                                        <option value="2">Administrador</option>                                            
+                                    <select v-for="user in users" :key="user.id" name="role_id" id="role_id" class="col-form-label" >                                            
+                                        <option value="{{user.id}}">{{user.name}}</option>                                                  
                                     </select>
                             </div>
-                        </div> -->
+                        </div>  -->
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
@@ -139,21 +120,23 @@
     <br>
 
             <div class="px-4">
-                <h2>Listado De Usuarios</h2>
+                <h2>Listado De Empresas</h2>
                 <table class="table table-hover table-striped">
                     <thead>
                         <tr>
                             <th>ID</th>
                             <th>Nombre</th>
-                            <th>Emaill</th>
+                            <th>Registrado a</th>
+                            <th>Descripcion</th>
                             <th>Acciones</th>                                
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(item, index) in users" :key="index">
+                        <tr v-for="(item, index) in companies" :key="index">
                             <td>{{item.id}}</td>
+                            <td>{{item.user_id}}</td>
                             <td>{{item.name}}</td>
-                            <td>{{item.email}}</td>
+                            <td>{{item.body}}</td>
                             <td class="content-justify-rigth">
                             <!-- <td><button class="btn btn-sm btn-success">Ver</button> -->
                             <button @click="editUserForm(item)" class="btn btn-sm btn-warning">Editar</button>
@@ -173,71 +156,77 @@
 export default {
     data(){
         return{
+            user_id:'',
             users: [],
-            user:{name:'', password:'', email:'', password_confirmation:''},
+            companies: [],
+            companie:{name:'', body:'', user_id:''},
             activeEdit:false,
         }
     },
     created(){
+        axios.get('companies')
+        .then(res=>{
+            this.companies = res.data
+        });
         axios.get('users')
         .then(res=>{
             this.users = res.data
-        })
+        });
     },
     methods:{
-        store(){
-            const params = {
-                name:                   this.user.name, 
-                password:               this.user.password, 
-                email:                  this.user.email, 
-                password_confirmation:  this.user.password_confirmation,
-                };
-                console.log(params)
-            axios.post('users', params)
-                .then(res=>{
-                    console.log('success')
-                    console.log(res)
-                    this.user = {name:'', password:'', email:'', password_confirmation:''};
-                    this.users.push(res.data)
-                })
-                .catch(err => {
-                    console.log('error')
-                    console.log(err)
-                })
-        },
-        deleteUser(item, index){
-            console.log(item.name)
-            axios.delete(`api/users/${item.id}`)
-            .then(()=>{
-                this.user = {name:'', password:'', email:'', password_confirmation:''};
-                this.users.splice(index, 1)
-            })
-        },
-        editUserForm(item){
-            this.activeEdit=    true;
-            this.user.name =    item.name;
-            this.user.email =   item.email; 
-            this.user.id =      item.id;
-        },
-        editUser(item){
-            const params = {
-                name:       item.name,
-                email:      item.email,
-            }
-            axios.put(`users/${item.id}`, params)
-            .then(res=>{
-                this.activeEdit = false;
-                this.user = {name:'', email:''};
-                axios.get('/users')
-                .then(res=>{
-                    this.users = res.data
-                });
-            })
-        },
-        cancel(){
-            this.activeEdit =   false;
-            this.companie =     {name:'', password:'', email:'', password_confirmation:''};
-        },
+        // store(){
+        //     const params = {
+        //         name:                   this.user.name, 
+        //         password:               this.user.password, 
+        //         email:                  this.user.email, 
+        //         password_confirmation:  this.user.password_confirmation,
+        //         };
+        //         console.log(params)
+        //     axios.post('/users', params)
+        //         .then(res=>{
+        //             console.log('success')
+        //             console.log(res)
+        //             this.user = {name:'', password:'', email:'', password_confirmation:''};
+        //             this.users.push(res.data)
+        //         })
+        //         .catch(err => {
+        //             console.log('error')
+        //             console.log(err)
+        //         })
+        // },
+        // deleteUser(item, index){
+        //     console.log(item.name)
+        //     axios.delete(`/users/${item.id}`)
+        //     .then(()=>{
+        //         this.user = {name:'', password:'', email:'', password_confirmation:''};
+        //         this.users.splice(index, 1)
+        //     })
+        // },
+        // editUserForm(item){
+        //     this.activeEdit=    true;
+        //     this.user.name =    item.name;
+        //     this.user.email =   item.email; 
+        //     this.user.id =      item.id;
+        // },
+        // editUser(item){
+        //     const params = {
+        //         name:       item.name,
+        //         email:      item.email,
+        //     }
+        //     axios.put(`users/${item.id}`, params)
+        //     .then(res=>{
+        //         this.activeEdit = false;
+        //         this.user = {name:'', email:''};
+        //         axios.get('/users')
+        //         .then(res=>{
+        //             this.users = res.data
+        //         });
+        //     })
+        // },
+        // cancel(){
+        //     this.activeEdit =   false;
+        //     this.companie =     {name:'', password:'', email:'', password_confirmation:''};
+        // },
     }
 }
 </script>

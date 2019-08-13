@@ -22,6 +22,7 @@ window.Vue = require('vue');
 // Vue.component('users-register-form', require('./components/users/UsersRegisterComponent.vue').default);
 // Vue.component('users-table', require('./components/users/UsersTableComponent.vue').default);
 Vue.component('users-component', require('./components/users/UsersComponent.vue').default);
+Vue.component('companies-component', require('./components/companies/CompaniesComponent.vue').default);
 
 
 /**

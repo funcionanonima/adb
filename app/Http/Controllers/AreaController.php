@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\area;
 use Illuminate\Http\Request;
-use App\User;
 
-class UsersController extends Controller
+class AreaController extends Controller
 {
     public function __construct()
     {
@@ -18,7 +18,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return User::all();
+        return Area::all();
     }
 
     /**
@@ -39,34 +39,33 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User();
-        $user->email = $request->email;
-        $user->name = $request->name;
-        $user->password = bcrypt($request->password);        
-        $user->save();
-        $user->assignRole('user');
+        $area = new Area();
+        $area->companie_id = $request->companie_id;
+        $area->body = $request->body;
+        $area->name = $request->name;      
+        $area->save();
 
-        return $user;
+        return $area;
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\area  $area
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(area $area)
     {
-        return $user;
+        return $area;
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\area  $area
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(area $area)
     {
         //
     }
@@ -75,27 +74,28 @@ class UsersController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\area  $area
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, area $area)
     {
-        $user->email = $request->email;
-        $user->name = $request->name;      
-        $user->save();
+        $area->companie_id = $request->companie_id;
+        $area->name = $request->name;
+        $area->body = $request->body;        
+        $area->save();
 
-        return $user;
+        return $area;
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\area  $area
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(area $area)
     {
-        $user->delete();
-        return $user;
+        $area->delete();
+        return $area;
     }
 }
