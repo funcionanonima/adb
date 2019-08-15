@@ -17,7 +17,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//front
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/empresas', 'HomeController@serviceCompanie')->name('home.companies');
+Route::get('/areas/{id}', 'HomeController@serviceArea')->name('home.areas');
+Route::get('/chivos/{id}', 'HomeController@serviceFiles')->name('home.files');
 
 //Users
 Route::resource('/users', 'UsersController')->except('create', 'edit');
@@ -37,5 +41,9 @@ Route::resource('/areas', 'AreaController')->except('create', 'edit');
 //Files
 Route::resource('/documents', 'DocumentController')->except('create', 'edit');
 Route::get('/document', 'DocumentController@indexDocument')->name('documents');
+
+
+
+
 
 

@@ -15,7 +15,7 @@
     </head>
     <body>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
-                <a class="navbar-brand" href="{{ url('/') }}">adb</a>
+                <a class="navbar-brand" href="{{ url('/') }}">ADB</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -52,11 +52,19 @@
 
             <div class="content">
                 <div class="jumbotron">
-                    <h2 class="display2">Index | Landing</h2>                    
+                    {{-- <h2 class="display2">ADB Consultores</h2> --}}
+                    <img  width="140px" src="{{ asset('images/adb1.png') }}" class="pb-4" alt="">    
+                    <p>Somos una empresa conformada por un grupo de profesionales que asesoramos y facilitamos la administración de procesos apoyados en información de los diferentes sectores económicos y basados en análisis estadísticos para la toma de decisiones. Nos apasiona analizar y evaluar el impacto de las políticas públicas en el sector privado y generar alternativas para su aprovechamiento.</p>                
+                </div>
+                <div class="text-center">
+                    <img src="{{ asset('images/nn.png') }}" alt="no">
+                </div>
+                <div class="text-center p-4" >
+                    <img  width="300px" src="{{ asset('images/adb1.png') }}" class="p-4" alt="">
                 </div>
 
                 <div class="text-center display1">
-                    Laravel | Vue | Oz
+                    Info
                 </div>
             </div>
         </div>

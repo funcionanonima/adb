@@ -120,6 +120,7 @@ class DocumentController extends Controller
     }
 
     public function indexDocument(){
-        return view('documents.index');
+        $documents = Document::all();
+        return view('documents.index', compact('documents'));
     }
 }

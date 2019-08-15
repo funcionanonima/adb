@@ -17,6 +17,9 @@
                     You are logged in as:
                     {{-- {{ Auth::user()->roles }} --}}
                     {{$roles = Auth::user()->getRoleNames()}}
+                    {{Auth::user()->id}}
+                    <hr>
+                    <companies-front-component></companies-front-component>
                 </div>
             </div>
         </div>

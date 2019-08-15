@@ -16,7 +16,7 @@ class Area extends Model
         return $this->belongsTo(Companie::class);
     }
 
-    public function areas(){
-        return $this->hasMany(File::class);
+    public function documents(){
+        return $this->hasMany(Document::class);
     }
 }

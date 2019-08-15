@@ -23,6 +23,7 @@ window.Vue = require('vue');
 // Vue.component('users-table', require('./components/users/UsersTableComponent.vue').default);
 Vue.component('users-component', require('./components/users/UsersComponent.vue').default);
 Vue.component('companies-component', require('./components/companies/CompaniesComponent.vue').default);
+Vue.component('companies-front-component', require('./components/companies/CompaniesFrontComponent.vue').default);
 
 
 /**

@@ -21,5 +21,12 @@
             </form>
         </div>
     </div>
+    <div class="row justify-content-center">
+        <ul>
+            @foreach($documents as $document)
+            <li>{{$document->name}}</li><a href="">Link</a>
+            @endforeach
+        </ul>
+    </div>
 </div>
 @endsection

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Companie;
+use App\Area;
 
 class HomeController extends Controller
 {
@@ -22,7 +24,22 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
-        return view('home');
+    {                       
+            return view('home');
+    }
+
+    public function serviceCompanie(){
+        $comps = Companie::where('user_id', auth()->user()->id)->get(); 
+        return $comps;
+    }
+
+    public function serviceArea($id){
+        $areas = Companie::where('id', $id)->first()->areas;
+        return $areas;        
+    }
+
+    public function serviceFiles($id){
+        $fils = Area::where('id', $id)->first()->documents;
+        return $fils;
     }
 }
