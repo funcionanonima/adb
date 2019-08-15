@@ -14,7 +14,7 @@
   --pink: #f66d9b;
   --red: #e3342f;
   --orange: #f6993f;
-  --yellow: #ffed4a;
+  --yellow: #FFB600;
   --green: #38c172;
   --teal: #4dc0b5;
   --cyan: #6cb2eb;
@@ -28,7 +28,7 @@
   --warning: #ffed4a;
   --danger: #e3342f;
   --light: #f8f9fa;
-  --dark: #343a40;
+  --dark: #243746;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
@@ -1867,7 +1867,7 @@ pre code {
 
 .table .thead-dark th {
   color: #fff;
-  background-color: #343a40;
+  background-color: #243746;
   border-color: #454d55;
 }
 
@@ -1879,13 +1879,13 @@ pre code {
 
 .table-dark {
   color: #fff;
-  background-color: #343a40;
+  background-color: #243746;
 }
 
 .table-dark th,
 .table-dark td,
 .table-dark thead th {
-  border-color: #454d55;
+  border-color: #243746;
 }
 
 .table-dark.table-bordered {
@@ -2828,8 +2828,8 @@ fieldset:disabled a.btn {
 
 .btn-dark {
   color: #fff;
-  background-color: #343a40;
-  border-color: #343a40;
+  background-color: #243746;
+  border-color: #243746;
 }
 
 .btn-dark:hover {
@@ -2846,8 +2846,8 @@ fieldset:disabled a.btn {
 .btn-dark.disabled,
 .btn-dark:disabled {
   color: #fff;
-  background-color: #343a40;
-  border-color: #343a40;
+  background-color: #243746;
+  border-color: #243746;
 }
 
 .btn-dark:not(:disabled):not(.disabled):active,
@@ -3117,14 +3117,14 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-dark {
-  color: #343a40;
-  border-color: #343a40;
+  color: #243746;
+  border-color: #243746;
 }
 
 .btn-outline-dark:hover {
   color: #fff;
-  background-color: #343a40;
-  border-color: #343a40;
+  background-color: #243746;
+  border-color: #243746;
 }
 
 .btn-outline-dark:focus,
@@ -3134,7 +3134,7 @@ fieldset:disabled a.btn {
 
 .btn-outline-dark.disabled,
 .btn-outline-dark:disabled {
-  color: #343a40;
+  color: #243746;
   background-color: transparent;
 }
 
@@ -3142,8 +3142,8 @@ fieldset:disabled a.btn {
 .btn-outline-dark:not(:disabled):not(.disabled).active,
 .show > .btn-outline-dark.dropdown-toggle {
   color: #fff;
-  background-color: #343a40;
-  border-color: #343a40;
+  background-color: #243746;
+  border-color: #243746;
 }
 
 .btn-outline-dark:not(:disabled):not(.disabled):active:focus,
@@ -5266,7 +5266,7 @@ a.badge-light.focus {
 
 .badge-dark {
   color: #fff;
-  background-color: #343a40;
+  background-color: #243746;
 }
 
 a.badge-dark:hover,
@@ -6761,19 +6761,20 @@ button.bg-info:focus {
   background-color: #3f9ae5 !important;
 }
 
+/* modificado */
 .bg-warning {
-  background-color: #ffed4a !important;
+  background-color: #FFB600 !important;
 }
 
 a.bg-warning:hover,
 a.bg-warning:focus,
 button.bg-warning:hover,
 button.bg-warning:focus {
-  background-color: #ffe817 !important;
+  background-color: #FFB600 !important;
 }
 
 .bg-danger {
-  background-color: #e3342f !important;
+  background-color: #FFB600 !important;
 }
 
 a.bg-danger:hover,
@@ -6794,15 +6795,16 @@ button.bg-light:focus {
   background-color: #dae0e5 !important;
 }
 
+/* personalizado */
 .bg-dark {
-  background-color: #343a40 !important;
+  background-color: #243746!important;
 }
 
 a.bg-dark:hover,
 a.bg-dark:focus,
 button.bg-dark:hover,
 button.bg-dark:focus {
-  background-color: #1d2124 !important;
+  background-color: #243746 !important;
 }
 
 .bg-white {
@@ -6882,7 +6884,7 @@ button.bg-dark:focus {
 }
 
 .border-dark {
-  border-color: #343a40 !important;
+  border-color: #243746 !important;
 }
 
 .border-white {
@@ -10493,7 +10495,7 @@ a.text-light:focus {
 }
 
 .text-dark {
-  color: #343a40 !important;
+  color: #243746 !important;
 }
 
 a.text-dark:hover,
