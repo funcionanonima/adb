@@ -88,9 +88,48 @@
         <main class="">
             @yield('content')
         </main>
-        <footer>
-            Este es el footer
-        </footer>
+
+            <footer class="text-center bg-dark py-5">
+                <div class="row">
+
+                    <div class="col-12 col-md">
+                    <small class="d-block text-muted">© 2017-2019</small>
+                    </div>
+
+                    <div class="col-6 col-md">
+                    <h5>Features</h5>
+                        <ul class="list-unstyled text-small">
+                            <li><a class="text-muted" href="#">Cool stuff</a></li>
+                            <li><a class="text-muted" href="#">Random feature</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-6 col-md">
+                    <h5>Resources</h5>
+                        <ul class="list-unstyled text-small">
+                            <li><a class="text-muted" href="#">Resource</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-6 col-md">
+                    <h5>Resources</h5>
+                        <ul class="list-unstyled text-small">
+                            <li><a class="text-muted" href="#">Business</a></li>
+                            <li><a class="text-muted" href="#">Education</a></li>
+                            <li><a class="text-muted" href="#">Government</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-6 col-md">
+                    <h5>About</h5>
+                        <ul class="list-unstyled text-small">
+                            <li><a class="text-muted" href="#">Team</a></li>
+                            <li><a class="text-muted" href="#">Locations</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </footer>
     </div>
     {{-- <script type="text/javascript" src="{{ asset('js/app2.js') }}"></script> --}}
 </body>
