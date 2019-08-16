@@ -1988,6 +1988,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -38140,68 +38149,76 @@ var render = function() {
       0
     ),
     _vm._v(" "),
+    _c("div", { staticClass: "row my-4" }, [
+      _c("div", { staticClass: "col-12" }, [
+        _c("div", { staticClass: "card " }, [
+          _c("div", { staticClass: "card-header" }, [_vm._v("Areas")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c(
+              "div",
+              { staticClass: "row" },
+              _vm._l(_vm.areas, function(area, index) {
+                return _c("div", { key: index, staticClass: "col-3" }, [
+                  _c("div", { staticClass: "card" }, [
+                    _c("div", { staticClass: "card-header" }, [
+                      _vm._v(" Area: " + _vm._s(area.name))
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("p", { staticClass: "card-text" }, [
+                        _vm._v(
+                          "\n                                        " +
+                            _vm._s(area.body) +
+                            "\n                                    "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-primary",
+                          on: {
+                            click: function($event) {
+                              return _vm.showFiles(area)
+                            }
+                          }
+                        },
+                        [_vm._v("Archivos")]
+                      )
+                    ])
+                  ])
+                ])
+              }),
+              0
+            )
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
     _c(
       "div",
       { staticClass: "row" },
-      _vm._l(_vm.areas, function(area, index) {
-        return _c("div", { key: index, staticClass: "col-3" }, [
+      _vm._l(_vm.files, function(fil, ind) {
+        return _c("div", { key: ind, staticClass: "col-3" }, [
           _c("div", { staticClass: "card" }, [
             _c("div", { staticClass: "card-header" }, [
-              _vm._v(" Area: " + _vm._s(area.name))
+              _vm._v("Documento " + _vm._s(fil.name))
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
-              _c("p", { staticClass: "card-text" }, [
-                _vm._v(
-                  "\n                        " +
-                    _vm._s(area.body) +
-                    "\n                    "
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-primary",
-                  on: {
-                    click: function($event) {
-                      return _vm.showFiles(area)
-                    }
-                  }
-                },
-                [_vm._v("Archivos")]
+              _vm._v(
+                "\n                    " +
+                  _vm._s(fil.route) +
+                  "\n                "
               )
             ])
           ])
         ])
       }),
       0
-    ),
-    _vm._v(" "),
-    _vm.areas2Show
-      ? _c(
-          "div",
-          { staticClass: "row" },
-          _vm._l(_vm.files, function(fil, ind) {
-            return _c("div", { key: ind, staticClass: "col-3" }, [
-              _c("div", { staticClass: "card" }, [
-                _c("div", { staticClass: "card-header" }, [
-                  _vm._v("Documento " + _vm._s(fil.name))
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(fil.route) +
-                      "\n                "
-                  )
-                ])
-              ])
-            ])
-          }),
-          0
-        )
-      : _vm._e()
+    )
   ])
 }
 var staticRenderFns = []

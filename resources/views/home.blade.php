@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="mt-4">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-10">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Bienvenido. {{Auth::user()->name}}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,12 +13,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in as:
                     {{-- {{ Auth::user()->roles }} --}}
-                    {{$roles = Auth::user()->getRoleNames()}}
-                    {{Auth::user()->id}}
-                    <hr>
+                    {{-- {{$roles = Auth::user()->getRoleNames()}} --}}
+                    {{-- {{Auth::user()->id}} --}}
                     <companies-front-component></companies-front-component>
                 </div>
             </div>

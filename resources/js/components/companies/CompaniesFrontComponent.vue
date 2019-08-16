@@ -13,20 +13,29 @@
                 </div>
             </div>
         </div>   
-        <div class="row" >              
-            <div class="col-3"  v-for="(area, index) in areas" :key="index" >
-                <div class="card">
-                    <div class="card-header"> Area: {{area.name}}</div>
+        <div class="row my-4" >              
+            <div class="col-12">
+                <div class="card ">
+                    <div class="card-header">Areas</div>
                     <div class="card-body">
-                        <p class="card-text">
-                            {{area.body}}
-                        </p>
-                        <a @click="showFiles(area)" class="btn btn-primary">Archivos</a>                        
+                        <div class="row">
+                            <div class="col-3"  v-for="(area, index) in areas" :key="index" >
+                            <div class="card">
+                                <div class="card-header"> Area: {{area.name}}</div>
+                                    <div class="card-body">
+                                        <p class="card-text">
+                                            {{area.body}}
+                                        </p>
+                                        <a @click="showFiles(area)" class="btn btn-primary">Archivos</a>                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row" v-if="areas2Show">
+        <div class="row">
             <div class="col-3"  v-for="(fil, ind) in files" :key="ind" >
                 <div class="card">
                     <div class="card-header">Documento {{fil.name}}</div>

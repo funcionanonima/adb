@@ -1,4 +1,8 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+@font-face {
+  font-family: Klavika Regular;
+  src: url('/fonts/Klavika.otf');
+}
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -14,7 +18,7 @@
   --pink: #f66d9b;
   --red: #e3342f;
   --orange: #f6993f;
-  --yellow: #FFB600;
+  --yellow: #ffed4a;
   --green: #38c172;
   --teal: #4dc0b5;
   --cyan: #6cb2eb;
@@ -28,13 +32,13 @@
   --warning: #ffed4a;
   --danger: #e3342f;
   --light: #f8f9fa;
-  --dark: #243746;
+  --dark: #343a40;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Nunito", sans-serif;
+  --font-family-sans-serif: Klavika Regular, "Nunito", sans-serif;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -45,7 +49,7 @@
 }
 
 html {
-  font-family: sans-serif;
+  font-family: Klavika Regular,  sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -66,7 +70,7 @@ section {
 
 body {
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: Klavika Regular, "Nunito", sans-serif;
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
@@ -1867,7 +1871,7 @@ pre code {
 
 .table .thead-dark th {
   color: #fff;
-  background-color: #243746;
+  background-color: #343a40;
   border-color: #454d55;
 }
 
@@ -1879,13 +1883,13 @@ pre code {
 
 .table-dark {
   color: #fff;
-  background-color: #243746;
+  background-color: #343a40;
 }
 
 .table-dark th,
 .table-dark td,
 .table-dark thead th {
-  border-color: #243746;
+  border-color: #454d55;
 }
 
 .table-dark.table-bordered {
@@ -2828,8 +2832,8 @@ fieldset:disabled a.btn {
 
 .btn-dark {
   color: #fff;
-  background-color: #243746;
-  border-color: #243746;
+  background-color: #343a40;
+  border-color: #343a40;
 }
 
 .btn-dark:hover {
@@ -2846,8 +2850,8 @@ fieldset:disabled a.btn {
 .btn-dark.disabled,
 .btn-dark:disabled {
   color: #fff;
-  background-color: #243746;
-  border-color: #243746;
+  background-color: #343a40;
+  border-color: #343a40;
 }
 
 .btn-dark:not(:disabled):not(.disabled):active,
@@ -3117,14 +3121,14 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-dark {
-  color: #243746;
-  border-color: #243746;
+  color: #343a40;
+  border-color: #343a40;
 }
 
 .btn-outline-dark:hover {
   color: #fff;
-  background-color: #243746;
-  border-color: #243746;
+  background-color: #343a40;
+  border-color: #343a40;
 }
 
 .btn-outline-dark:focus,
@@ -3134,7 +3138,7 @@ fieldset:disabled a.btn {
 
 .btn-outline-dark.disabled,
 .btn-outline-dark:disabled {
-  color: #243746;
+  color: #343a40;
   background-color: transparent;
 }
 
@@ -3142,8 +3146,8 @@ fieldset:disabled a.btn {
 .btn-outline-dark:not(:disabled):not(.disabled).active,
 .show > .btn-outline-dark.dropdown-toggle {
   color: #fff;
-  background-color: #243746;
-  border-color: #243746;
+  background-color: #343a40;
+  border-color: #343a40;
 }
 
 .btn-outline-dark:not(:disabled):not(.disabled):active:focus,
@@ -5266,7 +5270,7 @@ a.badge-light.focus {
 
 .badge-dark {
   color: #fff;
-  background-color: #243746;
+  background-color: #343a40;
 }
 
 a.badge-dark:hover,
@@ -6761,20 +6765,19 @@ button.bg-info:focus {
   background-color: #3f9ae5 !important;
 }
 
-/* modificado */
 .bg-warning {
-  background-color: #FFB600 !important;
+  background-color: #ffed4a !important;
 }
 
 a.bg-warning:hover,
 a.bg-warning:focus,
 button.bg-warning:hover,
 button.bg-warning:focus {
-  background-color: #FFB600 !important;
+  background-color: #ffe817 !important;
 }
 
 .bg-danger {
-  background-color: #FFB600 !important;
+  background-color: #e3342f !important;
 }
 
 a.bg-danger:hover,
@@ -6795,16 +6798,15 @@ button.bg-light:focus {
   background-color: #dae0e5 !important;
 }
 
-/* personalizado */
 .bg-dark {
-  background-color: #243746!important;
+  background-color: #343a40 !important;
 }
 
 a.bg-dark:hover,
 a.bg-dark:focus,
 button.bg-dark:hover,
 button.bg-dark:focus {
-  background-color: #243746 !important;
+  background-color: #1d2124 !important;
 }
 
 .bg-white {
@@ -6884,7 +6886,7 @@ button.bg-dark:focus {
 }
 
 .border-dark {
-  border-color: #243746 !important;
+  border-color: #343a40 !important;
 }
 
 .border-white {
@@ -10495,7 +10497,7 @@ a.text-light:focus {
 }
 
 .text-dark {
-  color: #243746 !important;
+  color: #343a40 !important;
 }
 
 a.text-dark:hover,

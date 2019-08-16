@@ -41,39 +41,47 @@
 
 @section('content')
 <div class="content">
-    <div class="jumbotron bg-dark">
+        <div class="text-center">
+                <img class="" src="{{ asset('images/nn.png') }}" alt="no">
+            </div>
+    <div class="mt-2 jumbotron bg-dark">
         {{-- <h2 class="display2">ADB Consultores</h2> --}}
         <img  width="140px" src="{{ asset('images/adb1.png') }}" class="pb-4" alt="">   
         <hr class="bg-warning"> 
-        <p class="text-warning">Somos una empresa conformada por un grupo de profesionales que asesoramos y facilitamos la administración de procesos apoyados en información de los diferentes sectores económicos y basados en análisis estadísticos para la toma de decisiones. Nos apasiona analizar y evaluar el impacto de las políticas públicas en el sector privado y generar alternativas para su aprovechamiento.</p>                
+        <div class="col-10">
+            <p class="text-light h5">Somos una empresa conformada por un grupo de profesionales que asesoramos y facilitamos la administración de procesos apoyados en información de los diferentes sectores económicos y basados en análisis estadísticos para la toma de decisiones. Nos apasiona analizar y evaluar el impacto de las políticas públicas en el sector privado y generar alternativas para su aprovechamiento.</p>                
+
+        </div>
     </div>
-    <div class="text-center">
-        <img src="{{ asset('images/nn.png') }}" alt="no">
-    </div>
+    
     <div class="text-center p-4" >
         <img  width="300px" src="{{ asset('images/adb1.png') }}" class="p-4" alt="">
     </div>
 
-    <div class="jumbotron text-center display1">
-        <h3>Contactános</h3>
-        <form class="text-center py-4" action="">
-            <div class="row">
-                <div class="col-6 form-group">
-                    <input type="text" class="form-control"  placeholder="Nombre">
-                </div>
-                <div class="col-6 form-group">
-                    <input type="text" class="form-control"  placeholder="Empresa">
-                </div>
+    <div class="jumbotron bg-dark text-center display1">
+        <div class="container text-center">
+            <h3 class="text-light">Contactános</h3>
+            <div class="col-6 offset-sm-3">
+                <form class="text-center py-4" action="">
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <input type="text" class="form-control"  placeholder="Nombre">
+                        </div>
+                        <div class="col-6 form-group">
+                            <input type="text" class="form-control"  placeholder="Empresa">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col form-group">
+                            <input type="email" class="form-control"  placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary">Enviar</button>
+                    </div>
+                </form>
             </div>
-            <div class="row">
-                <div class="col form-group">
-                    <input type="email" class="form-control"  placeholder="Email">
-                </div>
-            </div>
-            <div class="form-group">
-                <button class="btn btn-primary">Enviar</button>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 @endsection
