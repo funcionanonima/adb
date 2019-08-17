@@ -1,65 +1,33 @@
-
-            {{-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
-                <a class="navbar-brand" href="{{ url('/') }}">ADB</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                <div class="justify-content-end collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav justify-content-end">
-                        @auth
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/home') }}">Home<span class="sr-only">(current)</span></a>
-                        </li>
-                        @role('admin')
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">Register</a>
-                        </li>           
-                        @endrole             
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                             </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </li>
-                        @else
-                        <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">Login</a>
-                            </li>
-                        @endauth                        
-                    </ul>
-                </div>
-            </nav> --}}
-
-            
-
-@extends('layouts.app')
+@extends('layouts.front.app')
 
 @section('content')
-<div class="content">
+<div class="container-fluid my-3">
 
     <div class="text-center">
-        <img width="100%" src="{{ asset('images/nn.png') }}" alt="no">
+        <img class="img-fluid" src="{{ asset('images/nn.png') }}" alt="no">
     </div>
 
-    <div class="mt-2 jumbotron bg-dark">
-        {{-- <h2 class="display2">ADB Consultores</h2> --}}
-        <img  width="140px" src="{{ asset('images/adb1.png') }}" class="pb-4 pl-4" alt="">   
+    <div class="my-2 jumbotron bg-dark">
+        <h2 class="text-light" >¿Quienes somos?</h2> 
         <hr class="bg-warning"> 
         <div class="col-10">
             <p class="text-light h5">Somos una empresa conformada por un grupo de profesionales que asesoramos y facilitamos la administración de procesos apoyados en información de los diferentes sectores económicos y basados en análisis estadísticos para la toma de decisiones. Nos apasiona analizar y evaluar el impacto de las políticas públicas en el sector privado y generar alternativas para su aprovechamiento.</p>                
         </div>
     </div>
     
-    <div class="text-center p-4" >
-        <img  width="300px" src="{{ asset('images/adb1.png') }}" class="p-4" alt="">
+    <div class="text-center my-2" >
+        <img  width="180" src="{{ asset('images/adb1.png') }}" class="m-4" alt="">
+        <br>
+        <span class="text-warning">
+            +57 3163413215
+        </span>    
+        <br>        
+        <span class="text-warning">
+            wilopez@adbconsulting.com.co
+        </span>
     </div>
 
-    <div class="album py-5 bg-dark">
+    <div class="album my-2 py-5 bg-dark">
         <div class="container">
     
             <div class="row">
@@ -118,7 +86,7 @@
 
     <div class="jumbotron bg-light text-center display1">
         <div class="container text-center">
-            <h3 class="">Contactános</h3>
+            <h3 class="">Contáctanos</h3>
             <div class="col-6 offset-sm-3">
                 <form class="text-center py-4" action="">
                     <div class="row">
@@ -141,5 +109,6 @@
             </div>
         </div>
     </div>
+
 </div>
 @endsection
