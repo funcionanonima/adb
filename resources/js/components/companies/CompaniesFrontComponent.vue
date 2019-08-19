@@ -13,7 +13,7 @@
                 </div>
             </div>
         </div>   
-        <div class="row my-4" >              
+        <!-- <div class="row my-4" >              
             <div class="col-12">
                 <div class="card ">
                     <div class="card-header">Areas</div>
@@ -34,8 +34,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
+        </div> -->
+        <!-- <div class="row">
             <div class="col-3"  v-for="(fil, ind) in files" :key="ind" >
                 <div class="card">
                     <div class="card-header">Documento {{fil.name}}</div>
@@ -45,8 +45,9 @@
                 </div>
             </div>
         </div>
+        -->
     </div>
-    
+     
 </template>
 
 <script>
@@ -55,11 +56,11 @@ export default {
         return{
             comps:[],
             comp:{id:'', name:'', body: ''},
-            areas:[],
-            area:{name:'', id:'', body:''},
-            fil:{name:''},
-            files:[],
-            areas2Show:false,
+            // areas:[],
+            // area:{name:'', id:'', body:''},
+            // fil:{name:''},
+            // files:[],
+            // areas2Show:false,
         }
     },
     created(){
@@ -69,18 +70,18 @@ export default {
         });
     },
     methods:{
-        showAreas(companie){
-            axios.get(`areas/${companie.id}`)
-            .then(res => {
-                this.areas = res.data
-            });
-        },
-        showFiles(area){
-            axios.get(`chivos/${area.id}`)
-            .then(res => {
-                this.files = res.data
-            });
-        },
+        // showAreas(companie){
+        //     axios.get(`areas/${companie.id}`)
+        //     .then(res => {
+        //         this.areas = res.data
+        //     });
+        // },
+    //     showFiles(area){
+    //         axios.get(`chivos/${area.id}`)
+    //         .then(res => {
+    //             this.files = res.data
+    //         });
+    //     },
     },
 }
 </script>

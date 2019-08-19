@@ -25,21 +25,23 @@ class HomeController extends Controller
      */
     public function index()
     {                       
-            return view('home');
+        $comps = Companie::where('user_id', auth()->user()->id)->get(); 
+        // dd($comps);
+            return view('home', compact('comps'));
     }
 
-    public function serviceCompanie(){
-        $comps = Companie::where('user_id', auth()->user()->id)->get(); 
-        return $comps;
-    }
+    // public function serviceCompanie(){
+    //     $comps = Companie::where('user_id', auth()->user()->id)->get(); 
+    //     return $comps;
+    // }
 
     public function serviceArea($id){
         $areas = Companie::where('id', $id)->first()->areas;
-        return $areas;        
+        return view('homeAreas', compact('areas'));        
     }
 
     public function serviceFiles($id){
         $fils = Area::where('id', $id)->first()->documents;
-        return $fils;
+        return view('homeFiles', compact('fils'));
     }
 }
