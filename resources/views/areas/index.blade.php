@@ -10,7 +10,7 @@
                     @include('layouts.nav')
                 </div>
                 <div class="col-10">
-                    aquí va el componente de areas
+                    <areas-component></areas-component>
                 </div>
             </div>
         </div>

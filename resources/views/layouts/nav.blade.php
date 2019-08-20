@@ -14,7 +14,7 @@
                 <a class="nav-link" href="{{ route('companies') }}"><i class="far fa-building"></i>{{ __('Control Empresas') }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-puzzle-piece"></i>{{ __('Control Areas') }}</a>
+                <a class="nav-link" href="{{route('areas')}}"><i class="fas fa-puzzle-piece"></i>{{ __('Control Areas') }}</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('documents') }}"><i class="fas fa-file"></i>{{ __('Control Documentos') }}</a>

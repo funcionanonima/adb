@@ -97,9 +97,9 @@
 
     <div class="jumbotron bg-light text-center">
         <div class="container text-center">
-            <h2 class="mb-3">Contáctanos</h2>
-            <div class="row">
+            <div class="row my-4">                
                 <div class="col-sm-6">
+                        <h3><i class="fas fa-envelope-open-text"></i>   Deja aquí tu mensaje</h3>
                     <form class="text-center py-4" action="">
                         <div class="row">
                             <div class="col-6 form-group">
@@ -115,8 +115,11 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-primary">Enviar</button>
+                            <textarea class=" form-control" name="" id="" rows="3" placeholder="Mensaje"></textarea>
                         </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary">Enviar</button>
+                        </div>                        
                     </form>
                 </div>
                 <div class="col-sm-6">

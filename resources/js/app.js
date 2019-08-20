@@ -25,6 +25,7 @@ Vue.component('users-component', require('./components/users/UsersComponent.vue'
 Vue.component('companies-component', require('./components/companies/CompaniesComponent.vue').default);
 Vue.component('companies-front-component', require('./components/companies/CompaniesFrontComponent.vue').default);
 Vue.component('companies-list-component', require('./components/companies/CompaniesListComponent.vue').default);
+Vue.component('areas-component', require('./components/areas/AreasComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

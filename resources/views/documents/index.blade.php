@@ -33,7 +33,10 @@
                             <div class="row justify-content-center">
                                 <ul>
                                     @foreach($documents as $document)
-                                    <li>{{$document->name}}</li><a href="">Link</a>
+                                    <li>{{$document->name}}</li><a href="/files/{{$document->route}}">Link</a>
+                                    <div style="max-height: 150px;" class="text-center">
+                                        <img style="max-height: inherit"src="/files/{{$document->route}}" alt="">
+                                    </div>
                                     @endforeach
                                 </ul>
                             </div>
