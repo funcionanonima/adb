@@ -45,7 +45,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     Guardar
                                 </button>
-                                <button @submit.prevent="cancel()" class="btn btn-danger">
+                                <button @click="cancel()" class="btn btn-danger">
                                     Cancelar
                                 </button>
                             </div>
@@ -57,7 +57,7 @@
 
 
 
-            <div class="card" v-else >
+            <div class="card" v-if="activeNew" >
                 <div class="card-header">Crear Empresa</div>
 
                 <div class="card-body">
@@ -98,11 +98,15 @@
                                 <button type="submit" class="btn btn-primary">
                                     Registrar
                                 </button>
+                                <button @click="cancel()" class="btn btn-danger">
+                                    Cancelar
+                                </button>
                             </div>
                         </div>
                     </form>
                 </div>
-            </div>            
+            </div>    
+            <button class="btn btn-dark mt-4" @click="newCompanie" v-else>Nuevo</button>         
         </div>
     </div>  
     <br>
@@ -148,6 +152,7 @@ export default {
             companies: [],
             companie:{name:'', body:'', user_id:''},
             activeEdit:false,
+            activeNew:false,
         }
     },
     created(){
@@ -186,6 +191,7 @@ export default {
         },
         editCompaniesForm(item){
             this.activeEdit=    true;
+            this.activeNew= false;
             this.companie.name =        item.name;
             this.companie.body =        item.body; 
             this.companie.user_id =     item.user_id;
@@ -209,7 +215,12 @@ export default {
         },
         cancel(){
             this.activeEdit =   false;
+            this.activeNew = false;
             this.companie =     {name:'', body:'', user_id:''};
+        },
+        newCompanie(){
+            this.activeEdit = false;
+            this.activeNew = true;
         },
     }
 }

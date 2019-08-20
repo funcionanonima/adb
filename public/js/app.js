@@ -1839,6 +1839,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1849,7 +1853,8 @@ __webpack_require__.r(__webpack_exports__);
         body: '',
         user_id: ''
       },
-      activeEdit: false
+      activeEdit: false,
+      activeNew: false
     };
   },
   created: function created() {
@@ -1899,6 +1904,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     editCompaniesForm: function editCompaniesForm(item) {
       this.activeEdit = true;
+      this.activeNew = false;
       this.companie.name = item.name;
       this.companie.body = item.body;
       this.companie.user_id = item.user_id;
@@ -1926,11 +1932,16 @@ __webpack_require__.r(__webpack_exports__);
     },
     cancel: function cancel() {
       this.activeEdit = false;
+      this.activeNew = false;
       this.companie = {
         name: '',
         body: '',
         user_id: ''
       };
+    },
+    newCompanie: function newCompanie() {
+      this.activeEdit = false;
+      this.activeNew = true;
     }
   }
 });
@@ -2223,39 +2234,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2266,7 +2244,8 @@ __webpack_require__.r(__webpack_exports__);
         email: '',
         password_confirmation: ''
       },
-      activeEdit: false
+      activeEdit: false,
+      activeNew: false
     };
   },
   created: function created() {
@@ -2307,7 +2286,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this3 = this;
 
       console.log(item.name);
-      axios["delete"]("api/users/".concat(item.id)).then(function () {
+      axios["delete"]("users/".concat(item.id)).then(function () {
         _this3.user = {
           name: '',
           password: '',
@@ -2320,6 +2299,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     editUserForm: function editUserForm(item) {
       this.activeEdit = true;
+      this.activeNew = false;
       this.user.name = item.name;
       this.user.email = item.email;
       this.user.id = item.id;
@@ -2344,12 +2324,17 @@ __webpack_require__.r(__webpack_exports__);
     },
     cancel: function cancel() {
       this.activeEdit = false;
+      this.activeNew = false;
       this.companie = {
         name: '',
         password: '',
         email: '',
         password_confirmation: ''
       };
+    },
+    newUser: function newUser() {
+      this.activeEdit = false;
+      this.activeNew = true;
     }
   }
 });
@@ -37837,8 +37822,7 @@ var render = function() {
                           {
                             staticClass: "btn btn-danger",
                             on: {
-                              submit: function($event) {
-                                $event.preventDefault()
+                              click: function($event) {
                                 return _vm.cancel()
                               }
                             }
@@ -37855,7 +37839,10 @@ var render = function() {
                 )
               ])
             ])
-          : _c("div", { staticClass: "card" }, [
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.activeNew
+          ? _c("div", { staticClass: "card" }, [
               _c("div", { staticClass: "card-header" }, [
                 _vm._v("Crear Empresa")
               ]),
@@ -38018,11 +38005,51 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(0)
+                    _c("div", { staticClass: "form-group row mb-0" }, [
+                      _c("div", { staticClass: "col-md-6 offset-md-4" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary",
+                            attrs: { type: "submit" }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                    Registrar\n                                "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-danger",
+                            on: {
+                              click: function($event) {
+                                return _vm.cancel()
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                    Cancelar\n                                "
+                            )
+                          ]
+                        )
+                      ])
+                    ])
                   ]
                 )
               ])
             ])
+          : _c(
+              "button",
+              {
+                staticClass: "btn btn-dark mt-4",
+                on: { click: _vm.newCompanie }
+              },
+              [_vm._v("Nuevo")]
+            )
       ])
     ]),
     _vm._v(" "),
@@ -38032,7 +38059,7 @@ var render = function() {
       _c("h2", [_vm._v("Listado De Empresas")]),
       _vm._v(" "),
       _c("table", { staticClass: "table table-hover table-striped" }, [
-        _vm._m(1),
+        _vm._m(0),
         _vm._v(" "),
         _c(
           "tbody",
@@ -38082,24 +38109,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group row mb-0" }, [
-      _c("div", { staticClass: "col-md-6 offset-md-4" }, [
-        _c(
-          "button",
-          { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-          [
-            _vm._v(
-              "\n                                    Registrar\n                                "
-            )
-          ]
-        )
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -38376,8 +38385,7 @@ var render = function() {
                           {
                             staticClass: "btn btn-danger",
                             on: {
-                              submit: function($event) {
-                                $event.preventDefault()
+                              click: function($event) {
                                 return _vm.cancel()
                               }
                             }
@@ -38394,8 +38402,11 @@ var render = function() {
                 )
               ])
             ])
-          : _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-header" }, [
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.activeNew
+          ? _c("div", { staticClass: "card border-dark" }, [
+              _c("div", { staticClass: "card-header bg-dark text-light" }, [
                 _vm._v("Crear Usuario")
               ]),
               _vm._v(" "),
@@ -38581,11 +38592,48 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(0)
+                    _c("div", { staticClass: "form-group row mb-0" }, [
+                      _c("div", { staticClass: "col-md-6 offset-md-4" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary",
+                            attrs: { type: "submit" }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                    Registrar\n                                "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-danger",
+                            on: {
+                              click: function($event) {
+                                return _vm.cancel()
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                    Cancel\n                                "
+                            )
+                          ]
+                        )
+                      ])
+                    ])
                   ]
                 )
               ])
             ])
+          : _c(
+              "button",
+              { staticClass: "btn btn-dark mt-4", on: { click: _vm.newUser } },
+              [_vm._v("Nuevo")]
+            )
       ])
     ]),
     _vm._v(" "),
@@ -38595,7 +38643,7 @@ var render = function() {
       _c("h2", [_vm._v("Listado De Usuarios")]),
       _vm._v(" "),
       _c("table", { staticClass: "table table-hover table-striped" }, [
-        _vm._m(1),
+        _vm._m(0),
         _vm._v(" "),
         _c(
           "tbody",
@@ -38643,24 +38691,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group row mb-0" }, [
-      _c("div", { staticClass: "col-md-6 offset-md-4" }, [
-        _c(
-          "button",
-          { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-          [
-            _vm._v(
-              "\n                                    Registrar\n                                "
-            )
-          ]
-        )
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

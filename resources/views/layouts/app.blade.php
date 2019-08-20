@@ -37,7 +37,7 @@
                     @auth
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                                <a class="nav-link" href="{{ route('home') }}"><i class="far fa-clipboard"></i>  {{ __('Index') }}</a>
+                                <a class="nav-link" href="{{ route('home') }}"><i class="far fa-clipboard"></i>  {{ __('Recursos') }}</a>
                         </li>
                     </ul>
                     @endauth
@@ -46,7 +46,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar Sesion') }}</a>
                             </li>                            
                         @else                     
                             <li class="nav-item dropdown">
@@ -75,76 +75,10 @@
             </div>
         </nav>
 
-        @role('admin')
-        <div class="container-fluid">
-                <div class="row">          
-                    <div class="col-md-2 d-none d-md-block bg-light sidebar">
-                        <nav class="">
-                            <div class="sidebar-sticky">
-                                
-                            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                                <span>Administrador</span>
-                                <a class="d-flex align-items-center text-muted" href="#">
-                                </a>
-                            </h6>  
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('register') }}"><i class="fas fa-users-cog"></i>{{ __('Control Usuarios') }}</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('companies') }}"><i class="far fa-building"></i>{{ __('Control Empresas') }}</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('areas') }}"><i class="fas fa-puzzle-piece"></i>{{ __('Control Areas') }}</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('documents') }}"><i class="fas fa-file"></i>{{ __('Control Documentos') }}</a>
-                                    </li>  
-                                    <hr>
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();">
-                                                        <i class="fas fa-sign-out-alt"></i>
-                                        {{ __('Cerrar Sesion') }}
-                                        </a>
-    
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            @csrf
-                                        </form>
-                                    </li>
-                                </ul>                
-                            </div>
-                        </nav>
-                    </div>
-              
-                    <div class="col-md-10 d-none d-md-block">
-                        <main class="">
-                            @yield('content')
-                        </main>
-                    </div>
-                </div>
-            </div>
-            @endrole
-            
-            @role('user')
-            <div class="container-fluid">
-                <main class="">
-                    @yield('content')
-                </main>
-            </div>
-            @endrole
-            
-            @guest
-            <div class="container-fluid">
-                <main class="">
-                    @yield('content')
-                </main>
-            </div>
-            @endguest
-                    
+        <div class="content">
+                @yield('content')
+        </div>                  
         
-
         <footer class="bg-dark footer mt-auto py-3">
             <div class="container">
                 <div class="row">

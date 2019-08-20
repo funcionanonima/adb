@@ -25,52 +25,25 @@
 
                             <div class="col-md-6">
                                 <input v-model="user.email" id="email" type="email" class="form-control" name="email" required>
-
-
                             </div>
                         </div>
-
-                        <!-- <div class="form-group row">
-                            <label for="rol" class="col-md-4 col-form-label text-md-right">Rol</label>
-
-                            <div class="col-md-6">
-                                    <select v-model="user.role_id" name="role" id="role" class="col-form-label" >                                            
-                                        <option value="1">Usuario</option>                                            
-                                        <option value="2">Administrador</option>                                            
-                                    </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="statuse" class="col-md-4 col-form-label text-md-right">Estado</label>
-
-                            <div class="col-md-6">
-                                    <select v-model="user.statuse_id" name="statuse" id="statuse" class="col-form-label" >                                            
-                                        <option value="1">Activo</option>                                            
-                                        <option value="2">Inactivo</option>                                            
-                                    </select>
-                            </div>
-                        </div> -->
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     Guardar
-                                </button>
-                                <button @submit.prevent="cancel()" class="btn btn-danger">
+                                </button>   
+                                <button @click="cancel()" class="btn btn-danger">
                                     Cancelar
-                                </button>
+                                </button>                             
                             </div>
                         </div>
-                    </form>
+                    </form>                    
                 </div>
             </div>
 
-
-
-
-            <div class="card"  v-else>
-                <div class="card-header">Crear Usuario</div>
+            <div class="card border-dark"  v-if="activeNew">
+                <div class="card-header bg-dark text-light">Crear Usuario</div>
 
                 <div class="card-body">
                     <form @submit.prevent="store" aria-label="Crear Usuario">
@@ -113,30 +86,24 @@
                             </div>
                         </div>
 
-                        <!-- <div class="form-group row">
-                            <label for="role_id" class="col-md-4 col-form-label text-md-right">Rol</label>
-
-                            <div class="col-md-6">
-                                    <select v-model="user.role_id" name="role_id" id="role_id" class="col-form-label" >                                            
-                                        <option value="1">Usuario</option>                                            
-                                        <option value="2">Administrador</option>                                            
-                                    </select>
-                            </div>
-                        </div> -->
-
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     Registrar
-                                </button>
+                                </button>    
+                                <button @click="cancel()" class="btn btn-danger">
+                                    Cancel
+                                </button>                            
                             </div>
                         </div>
-                    </form>
+                    </form>                    
                 </div>
-            </div>            
+            </div>    
+            <button class="btn btn-dark mt-4" @click="newUser" v-else>Nuevo</button>        
         </div>
     </div>  
     <br>
+    
 
             <div class="px-4">
                 <h2>Listado De Usuarios</h2>
@@ -176,6 +143,7 @@ export default {
             users: [],
             user:{name:'', password:'', email:'', password_confirmation:''},
             activeEdit:false,
+            activeNew:false,
         }
     },
     created(){
@@ -207,7 +175,7 @@ export default {
         },
         deleteUser(item, index){
             console.log(item.name)
-            axios.delete(`api/users/${item.id}`)
+            axios.delete(`users/${item.id}`)
             .then(()=>{
                 this.user = {name:'', password:'', email:'', password_confirmation:''};
                 this.users.splice(index, 1)
@@ -215,6 +183,7 @@ export default {
         },
         editUserForm(item){
             this.activeEdit=    true;
+            this.activeNew =    false;
             this.user.name =    item.name;
             this.user.email =   item.email; 
             this.user.id =      item.id;
@@ -236,7 +205,12 @@ export default {
         },
         cancel(){
             this.activeEdit =   false;
+            this.activeNew =   false;
             this.companie =     {name:'', password:'', email:'', password_confirmation:''};
+        },
+        newUser(){
+            this.activeEdit = false;
+            this.activeNew = true;
         },
     }
 }
