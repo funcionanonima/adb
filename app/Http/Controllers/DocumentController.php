@@ -55,7 +55,8 @@ class DocumentController extends Controller
         $document->route = $nameFile;
         $document->save();
 
-        return $document;
+        // return $document;
+        return view('home');
     }
 
     /**
